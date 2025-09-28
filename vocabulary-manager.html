@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Từ Vựng - DOL English</title>
+    <link rel="stylesheet" href="../css/vocabulary-manager.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <ul class="navbar-nav">
+            <a href="main-page.html" class="logo">DOL English</a>
+            <a href="learning-hub.html" class="nav-link">🎮 Games</a>
+            <a href="vocabulary-manager.html" class="nav-link active">📚 Từ Vựng</a>
+            <a href="#leaderboard" class="nav-link">🏆 Bảng Xếp Hạng</a>
+            <a href="login.html" class="nav-link">Đăng nhập</a>
+            <a href="register.html" class="nav-link">Đăng ký</a>
+            <a href="#contact" class="inbox-btn">Liên hệ</a>
+        </ul>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="header-section">
+        <div class="header-container">
+            <div class="header-content">
+                <h1>📚 Hệ Thống Từ Vựng Thông Minh</h1>
+                <p>Khám phá hơn 200 từ vựng được phân loại theo cấp độ và chủ đề</p>
+                <div class="stats-overview">
+                    <div class="stat-card">
+                        <div class="stat-icon">📖</div>
+                        <div class="stat-info">
+                            <div class="stat-number" id="totalWords">200+</div>
+                            <div class="stat-label">Từ vựng</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🎯</div>
+                        <div class="stat-info">
+                            <div class="stat-number" id="totalTopics">12</div>
+                            <div class="stat-label">Chủ đề</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⭐</div>
+                        <div class="stat-info">
+                            <div class="stat-number" id="favoritesCount">0</div>
+                            <div class="stat-label">Yêu thích</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📊</div>
+                        <div class="stat-info">
+                            <div class="stat-number" id="accuracyRate">0%</div>
+                            <div class="stat-label">Độ chính xác</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="filter-container">
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-level="all">Tất cả</button>
+                <button class="filter-tab" data-level="beginner">Cơ bản</button>
+                <button class="filter-tab" data-level="intermediate">Trung bình</button>
+                <button class="filter-tab" data-level="advanced">Nâng cao</button>
+            </div>
+            
+            <div class="filter-controls">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Tìm kiếm từ vựng...">
+                </div>
+                
+                <div class="topic-filter">
+                    <select id="topicFilter">
+                        <option value="">Tất cả chủ đề</option>
+                    </select>
+                </div>
+                
+                <div class="sort-options">
+                    <select id="sortBy">
+                        <option value="alphabetical">A-Z</option>
+                        <option value="accuracy">Độ chính xác</option>
+                        <option value="recent">Gần đây</option>
+                        <option value="favorites">Yêu thích</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vocabulary Grid -->
+    <section class="vocabulary-section">
+        <div class="vocabulary-container">
+            <div class="vocabulary-header">
+                <h2 id="vocabularyTitle">Tất cả từ vựng</h2>
+                <div class="view-options">
+                    <button class="view-btn active" data-view="grid">
+                        <i class="fas fa-th"></i>
+                    </button>
+                    <button class="view-btn" data-view="list">
+                        <i class="fas fa-list"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="vocabulary-grid" id="vocabularyGrid">
+                <!-- Vocabulary cards will be populated by JavaScript -->
+            </div>
+            
+            <div class="pagination" id="pagination">
+                <!-- Pagination will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Study Mode Section -->
+    <section class="study-section">
+        <div class="study-container">
+            <h2>🎯 Chế Độ Học Tập</h2>
+            <div class="study-modes">
+                <div class="study-mode-card" onclick="startStudyMode('review')">
+                    <div class="mode-icon">🔄</div>
+                    <h3>Ôn Tập</h3>
+                    <p>Học lại những từ cần cải thiện</p>
+                    <div class="mode-stats">
+                        <span id="reviewCount">0 từ cần ôn</span>
+                    </div>
+                </div>
+                
+                <div class="study-mode-card" onclick="startStudyMode('favorites')">
+                    <div class="mode-icon">⭐</div>
+                    <h3>Yêu Thích</h3>
+                    <p>Học từ vựng đã lưu yêu thích</p>
+                    <div class="mode-stats">
+                        <span id="favoritesStudyCount">0 từ yêu thích</span>
+                    </div>
+                </div>
+                
+                <div class="study-mode-card" onclick="startStudyMode('topic')">
+                    <div class="mode-icon">📚</div>
+                    <h3>Theo Chủ Đề</h3>
+                    <p>Học từ vựng theo chủ đề cụ thể</p>
+                    <div class="mode-stats">
+                        <span>12 chủ đề</span>
+                    </div>
+                </div>
+                
+                <div class="study-mode-card" onclick="startStudyMode('level')">
+                    <div class="mode-icon">🎯</div>
+                    <h3>Theo Cấp Độ</h3>
+                    <p>Học từ vựng theo trình độ</p>
+                    <div class="mode-stats">
+                        <span>3 cấp độ</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Word Detail Modal -->
+    <div id="wordModal" class="modal">
+        <div class="modal-content word-modal">
+            <span class="close" onclick="closeWordModal()">&times;</span>
+            <div id="wordDetail">
+                <!-- Word details will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Study Mode Modal -->
+    <div id="studyModal" class="modal">
+        <div class="modal-content study-modal">
+            <span class="close" onclick="closeStudyModal()">&times;</span>
+            <div id="studyContainer">
+                <!-- Study mode content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-buttons">
+        <a href="#" class="floating-btn fb-btn" title="Facebook">
+            <i class="fab fa-facebook-messenger"></i>
+        </a>
+        <a href="#" class="floating-btn zalo-btn" title="Zalo">
+            <i class="fas fa-comments"></i>
+        </a>
+    </div>
+
+    <script src="../js/vocabulary-database.js"></script>
+    <script src="../js/vocabulary-manager.js"></script>
+</body>
+</html>

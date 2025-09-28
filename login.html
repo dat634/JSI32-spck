@@ -1,11 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Đăng nhập - DOL English</title>
+    <link rel="stylesheet" href="../css/main-page.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <ul class="navbar-nav">
+            <a href="main-page.html" class="logo">DOL English</a>
+            <a href="learning-hub.html" class="nav-link">🎮 Games</a>
+            <a href="vocabulary-manager.html" class="nav-link">📚 Từ Vựng</a>
+            <a href="#leaderboard" class="nav-link">🏆 Bảng Xếp Hạng</a>
+            <a href="login.html" class="nav-link active">Đăng nhập</a>
+            <a href="register.html" class="nav-link">Đăng ký</a>
+            <a href="#contact" class="inbox-btn">Liên hệ</a>
+        </ul>
+    </nav>
+
+    <!-- Login Form -->
+    <div class="form-container">
+        <h1 class="form-title">Đăng nhập</h1>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email" class="form-label">
+                    <i class="fas fa-envelope"></i> Email
+                </label>
+                <input type="email" id="email" name="email" class="form-input" placeholder="Nhập email của bạn" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password" class="form-label">
+                    <i class="fas fa-lock"></i> Mật khẩu
+                </label>
+                <input type="password" id="password" name="password" class="form-input" placeholder="Nhập mật khẩu" required>
+            </div>
+            
+            <button type="submit" class="form-button">
+                <i class="fas fa-sign-in-alt"></i> Đăng nhập
+            </button>
+        </form>
+        
+        <div class="form-link">
+            <p>Chưa có tài khoản? <a href="register.html">Đăng ký ngay</a></p>
+            <p><a href="#">Quên mật khẩu?</a></p>
+        </div>
+    </div>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-buttons">
+        <a href="#" class="floating-btn fb-btn" title="Facebook">
+            <i class="fab fa-facebook-messenger"></i>
+        </a>
+        <a href="#" class="floating-btn zalo-btn" title="Zalo">
+            <i class="fas fa-comments"></i>
+        </a>
+    </div>
+
+    <script src="../js/login.js"></script>
 </body>
 </html>

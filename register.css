@@ -1,0 +1,33 @@
+/* Additional styles for register page */
+body {
+    background: linear-gradient(135deg, var(--dol-light-gray), var(--dol-beige));
+    min-height: 100vh;
+}
+
+.form-container {
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+    max-width: 600px;
+}
+
+.form-label i {
+    margin-right: 0.5rem;
+    color: var(--dol-red);
+}
+
+.form-input:focus {
+    border-color: var(--dol-red);
+    box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+}
+
+.form-button i {
+    margin-right: 0.5rem;
+}
+
+select.form-input {
+    cursor: pointer;
+}
+
+select.form-input option {
+    padding: 0.5rem;
+}

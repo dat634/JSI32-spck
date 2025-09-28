@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký - DOL English</title>
+    <link rel="stylesheet" href="../css/main-page.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <ul class="navbar-nav">
+            <a href="main-page.html" class="logo">DOL English</a>
+            <a href="learning-hub.html" class="nav-link">🎮 Games</a>
+            <a href="vocabulary-manager.html" class="nav-link">📚 Từ Vựng</a>
+            <a href="#leaderboard" class="nav-link">🏆 Bảng Xếp Hạng</a>
+            <a href="login.html" class="nav-link">Đăng nhập</a>
+            <a href="register.html" class="nav-link active">Đăng ký</a>
+            <a href="#contact" class="inbox-btn">Liên hệ</a>
+        </ul>
+    </nav>
+
+    <!-- Register Form -->
+    <div class="form-container">
+        <h1 class="form-title">Đăng ký tài khoản</h1>
+        <form id="registerForm">
+            <div class="form-group">
+                <label for="fullName" class="form-label">
+                    <i class="fas fa-user"></i> Họ và tên
+                </label>
+                <input type="text" id="fullName" name="fullName" class="form-input" placeholder="Nhập họ và tên" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email" class="form-label">
+                    <i class="fas fa-envelope"></i> Email
+                </label>
+                <input type="email" id="email" name="email" class="form-input" placeholder="Nhập email của bạn" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone" class="form-label">
+                    <i class="fas fa-phone"></i> Số điện thoại
+                </label>
+                <input type="tel" id="phone" name="phone" class="form-input" placeholder="Nhập số điện thoại" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password" class="form-label">
+                    <i class="fas fa-lock"></i> Mật khẩu
+                </label>
+                <input type="password" id="password" name="password" class="form-input" placeholder="Nhập mật khẩu" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="confirmPassword" class="form-label">
+                    <i class="fas fa-lock"></i> Xác nhận mật khẩu
+                </label>
+                <input type="password" id="confirmPassword" name="confirmPassword" class="form-input" placeholder="Nhập lại mật khẩu" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="course" class="form-label">
+                    <i class="fas fa-graduation-cap"></i> Khóa học quan tâm
+                </label>
+                <select id="course" name="course" class="form-input" required>
+                    <option value="">Chọn khóa học</option>
+                    <option value="ielts-junior">IELTS Junior</option>
+                    <option value="ielts-basic">IELTS Cơ bản</option>
+                    <option value="ielts-advanced">IELTS Nâng cao</option>
+                    <option value="ielts-intensive">IELTS Cấp tốc</option>
+                    <option value="sat">SAT</option>
+                    <option value="toeic">TOEIC</option>
+                    <option value="pronunciation">Phát âm</option>
+                </select>
+            </div>
+            
+            <button type="submit" class="form-button">
+                <i class="fas fa-user-plus"></i> Đăng ký ngay
+            </button>
+        </form>
+        
+        <div class="form-link">
+            <p>Đã có tài khoản? <a href="login.html">Đăng nhập ngay</a></p>
+        </div>
+    </div>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-buttons">
+        <a href="#" class="floating-btn fb-btn" title="Facebook">
+            <i class="fab fa-facebook-messenger"></i>
+        </a>
+        <a href="#" class="floating-btn zalo-btn" title="Zalo">
+            <i class="fas fa-comments"></i>
+        </a>
+    </div>
+
+    <script src="../js/register.js"></script>
+</body>
+</html>

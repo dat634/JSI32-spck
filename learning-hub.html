@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Học Online - DOL English</title>
+    <link rel="stylesheet" href="../css/learning-hub.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Learning Hub Navigation -->
+    <nav class="learning-navbar">
+        <div class="nav-left">
+            <a href="main-page.html" class="logo">DOL English</a>
+            <div class="learning-modes">
+                <button class="mode-btn active" data-mode="all">🎮 Tất Cả Games</button>
+                <button class="mode-btn" data-mode="beginner">🟢 Cơ Bản</button>
+                <button class="mode-btn" data-mode="intermediate">🟡 Trung Bình</button>
+                <button class="mode-btn" data-mode="advanced">🔴 Nâng Cao</button>
+                <button class="mode-btn" data-mode="favorites">⭐ Yêu Thích</button>
+            </div>
+        </div>
+        <div class="nav-right">
+            <a href="main-page.html" class="home-btn">
+                <i class="fas fa-home"></i>
+                Về Trang Chủ
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>🎮 Học Tiếng Anh Vừa Học Vừa Chơi</h1>
+                <p class="hero-subtitle">Khám phá 5 minigame thú vị giúp bạn học từ vựng hiệu quả!</p>
+                <div class="stats-bar">
+                    <div class="stat-item">
+                        <span class="stat-number" id="totalScore">0</span>
+                        <span class="stat-label">Điểm tổng</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="gamesPlayed">0</span>
+                        <span class="stat-label">Lượt chơi</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="streak">0</span>
+                        <span class="stat-label">Ngày liên tiếp</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-illustration">
+                <div class="floating-elements">
+                    <div class="floating-word" style="--delay: 0s">📚</div>
+                    <div class="floating-word" style="--delay: 1s">🎯</div>
+                    <div class="floating-word" style="--delay: 2s">⚡</div>
+                    <div class="floating-word" style="--delay: 3s">🏆</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Games Section -->
+    <section class="games-section">
+        <div class="games-container">
+            <h2 class="section-title">🎮 Chọn Minigame Yêu Thích</h2>
+            <div class="games-grid">
+                <!-- Flashcard Quiz -->
+                <div class="game-card" data-game="flashcard">
+                    <div class="game-icon">🃏</div>
+                    <div class="game-badge easy">Dễ</div>
+                    <h3 class="game-title">Flashcard Quiz</h3>
+                    <p class="game-description">Học từ vựng với thẻ ghi nhớ. Nhấn "Show Answer" và đánh giá khả năng nhớ của bạn!</p>
+                    <div class="game-stats">
+                        <span><i class="fas fa-star"></i> Điểm cao: <span id="flashcard-high">0</span></span>
+                        <span><i class="fas fa-play"></i> Đã chơi: <span id="flashcard-plays">0</span></span>
+                    </div>
+                    <button class="play-btn" onclick="startGame('flashcard')">
+                        <i class="fas fa-play"></i> Chơi ngay
+                    </button>
+                </div>
+
+                <!-- Multiple Choice Quiz -->
+                <div class="game-card" data-game="multiple-choice">
+                    <div class="game-icon">❓</div>
+                    <div class="game-badge medium">Trung bình</div>
+                    <h3 class="game-title">Multiple Choice</h3>
+                    <p class="game-description">Chọn đáp án đúng từ 4 lựa chọn. Câu đúng +1 điểm, sai -1 điểm!</p>
+                    <div class="game-stats">
+                        <span><i class="fas fa-star"></i> Điểm cao: <span id="multiple-high">0</span></span>
+                        <span><i class="fas fa-play"></i> Đã chơi: <span id="multiple-plays">0</span></span>
+                    </div>
+                    <button class="play-btn" onclick="startGame('multiple-choice')">
+                        <i class="fas fa-play"></i> Chơi ngay
+                    </button>
+                </div>
+
+                <!-- Typing Challenge -->
+                <div class="game-card" data-game="typing">
+                    <div class="game-icon">⌨️</div>
+                    <div class="game-badge medium">Trung bình</div>
+                    <h3 class="game-title">Typing Challenge</h3>
+                    <p class="game-description">Gõ từ tiếng Anh theo nghĩa tiếng Việt. Luyện tập chính tả và tốc độ gõ!</p>
+                    <div class="game-stats">
+                        <span><i class="fas fa-star"></i> Điểm cao: <span id="typing-high">0</span></span>
+                        <span><i class="fas fa-play"></i> Đã chơi: <span id="typing-plays">0</span></span>
+                    </div>
+                    <button class="play-btn" onclick="startGame('typing')">
+                        <i class="fas fa-play"></i> Chơi ngay
+                    </button>
+                </div>
+
+                <!-- Speed Mode -->
+                <div class="game-card" data-game="speed">
+                    <div class="game-icon">⚡</div>
+                    <div class="game-badge hard">Khó</div>
+                    <h3 class="game-title">Speed Mode</h3>
+                    <p class="game-description">30 giây để trả lời nhiều câu hỏi nhất có thể. Điểm dựa trên tốc độ!</p>
+                    <div class="game-stats">
+                        <span><i class="fas fa-star"></i> Điểm cao: <span id="speed-high">0</span></span>
+                        <span><i class="fas fa-play"></i> Đã chơi: <span id="speed-plays">0</span></span>
+                    </div>
+                    <button class="play-btn" onclick="startGame('speed')">
+                        <i class="fas fa-play"></i> Chơi ngay
+                    </button>
+                </div>
+
+                <!-- Word Shooter -->
+                <div class="game-card" data-game="shooter">
+                    <div class="game-icon">🎯</div>
+                    <div class="game-badge expert">Chuyên gia</div>
+                    <h3 class="game-title">Word Shooter</h3>
+                    <p class="game-description">Bắn từ tiếng Anh đang rơi xuống bằng cách gõ đúng từ đó!</p>
+                    <div class="game-stats">
+                        <span><i class="fas fa-star"></i> Điểm cao: <span id="shooter-high">0</span></span>
+                        <span><i class="fas fa-play"></i> Đã chơi: <span id="shooter-plays">0</span></span>
+                    </div>
+                    <button class="play-btn" onclick="startGame('shooter')">
+                        <i class="fas fa-play"></i> Chơi ngay
+                    </button>
+                </div>
+
+                <!-- Word Puzzle -->
+                <div class="game-card" data-game="puzzle">
+                    <div class="game-icon">🧩</div>
+                    <div class="game-badge medium">Trung bình</div>
+                    <h3 class="game-title">Word Puzzle</h3>
+                    <p class="game-description">Ghép các chữ cái để tạo thành từ tiếng Anh có nghĩa!</p>
+                    <div class="game-stats">
+                        <span><i class="fas fa-star"></i> Điểm cao: <span id="puzzle-high">0</span></span>
+                        <span><i class="fas fa-play"></i> Đã chơi: <span id="puzzle-plays">0</span></span>
+                    </div>
+                    <button class="play-btn" onclick="startGame('puzzle')">
+                        <i class="fas fa-play"></i> Chơi ngay
+                    </button>
+                </div>
+
+                <!-- Memory Match -->
+                <div class="game-card" data-game="memory">
+                    <div class="game-icon">🎲</div>
+                    <div class="game-badge easy">Dễ</div>
+                    <h3 class="game-title">Memory Match</h3>
+                    <p class="game-description">Lật các thẻ để tìm cặp từ tiếng Anh và nghĩa tiếng Việt!</p>
+                    <div class="game-stats">
+                        <span><i class="fas fa-star"></i> Điểm cao: <span id="memory-high">0</span></span>
+                        <span><i class="fas fa-play"></i> Đã chơi: <span id="memory-plays">0</span></span>
+                    </div>
+                    <button class="play-btn" onclick="startGame('memory')">
+                        <i class="fas fa-play"></i> Chơi ngay
+                    </button>
+                </div>
+                <!-- Practice Mode -->
+                <div class="game-card practice-card">
+                    <div class="game-icon">📖</div>
+                    <h3 class="game-title">Luyện Tập Từ Vựng</h3>
+                    <p class="game-description">Xem danh sách từ vựng và nghĩa để chuẩn bị cho các minigame!</p>
+                    <button class="play-btn" onclick="showVocabulary()">
+                        <i class="fas fa-book"></i> Xem từ vựng
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leaderboard Section -->
+    <section class="leaderboard-section">
+        <div class="leaderboard-container">
+            <h2 class="section-title">🏆 Bảng Xếp Hạng</h2>
+            <div class="leaderboard-tabs">
+                <button class="tab-btn active" onclick="showLeaderboard('daily')">Hàng ngày</button>
+                <button class="tab-btn" onclick="showLeaderboard('weekly')">Hàng tuần</button>
+                <button class="tab-btn" onclick="showLeaderboard('all-time')">Tất cả</button>
+            </div>
+            <div class="leaderboard-list" id="leaderboardList">
+                <!-- Leaderboard items will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-buttons">
+        <a href="#" class="floating-btn fb-btn" title="Facebook">
+            <i class="fab fa-facebook-messenger"></i>
+        </a>
+        <a href="#" class="floating-btn zalo-btn" title="Zalo">
+            <i class="fas fa-comments"></i>
+        </a>
+    </div>
+
+    <!-- Game Modal -->
+    <div id="gameModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeGame()">&times;</span>
+            <div id="gameContainer"></div>
+        </div>
+    </div>
+
+    <!-- Vocabulary Modal -->
+    <div id="vocabModal" class="modal">
+        <div class="modal-content vocab-modal">
+            <span class="close" onclick="closeVocabulary()">&times;</span>
+            <h2>📚 Từ Vựng Học Tập</h2>
+            <div class="vocab-list" id="vocabList">
+                <!-- Vocabulary items will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/vocabulary-database.js"></script>
+    <script src="../js/learning-hub.js"></script>
+</body>
+</html>
